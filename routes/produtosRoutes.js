@@ -8,5 +8,6 @@ router.get('/produtos/editar/:id', ProdutoController.pgEditProduto);
 router.post('/produtos/atualizar', ProdutoController.editProduto);
 router.post('/produtos/enviar', ProdutoController.AddProduto);
 router.post('/produtos/deletar', ProdutoController.delProduto);
+router.post('/produtos/aplicar-cupom', ProdutoController.aplicarCupom);
 
 module.exports = router;
