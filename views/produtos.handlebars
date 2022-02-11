@@ -16,6 +16,8 @@
             <th>Nome</th>
             <th>Preço</th>
             <th>Descrição</th>
+            <th>Tipo</th>
+            <th>Cupom</th>
             <th>Quantidade</th>
             <th>Ações</th>
         </thead>
@@ -25,6 +27,14 @@
                     <td>{{ this.name }}</td>
                     <td>{{ this.price }}</td>
                     <td>{{ this.description }}</td>
+                    <td>{{ this.kind }}</td>
+                    <td>
+                        <form method="POST" action="/produtos/aplicar-cupom">
+                            <input type="hidden" name="produtoId" id="produtoId" value="{{ this._id }}">
+                            <input type="text" name="cupom" id="cupom" placeholder="Digite aqui seu cupom">
+                            <button>Aplicar</button>
+                        </form>
+                    </td>
                     <td>{{ this.quantity }}</td>
                     <td>
                         <div>

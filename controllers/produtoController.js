@@ -1,4 +1,5 @@
 const Produto = require("../models/Produtos");
+const Cupons = require("./../models/Cupons");
 
 class ProdutoController {
     static async pgProdutos(req, res){
@@ -41,6 +42,29 @@ class ProdutoController {
     static async delProduto(req, res){
         const {_id} = req.body;
         await Produto.findByIdAndDelete(_id);
+        res.redirect('/produtos');
+    }
+
+    static async aplicarCupom(req, res){
+        const { cupom, produtoId } = req.body;
+        const cupomVerify = await Cupons.find({ code: cupom });
+        const produto = await Produto.findById(produtoId).lean();
+        const currentDay = new Date().getDate();
+        const currentMonth = new Date().getMonth() + 1;
+        const cupomValidDay = new Date(`${cupomVerify[0].expDate} `).getDate();
+        const cupomValidMonth = new Date(`${cupomVerify[0].expDate} `).getMonth() + 1;
+
+        if(cupomVerify[0].category === produto.kind){
+            if(cupomValidDay >= currentDay && cupomValidMonth >= currentMonth){
+                await Produto.findByIdAndUpdate(produto._id, 
+                    { price: (produto.price - Number(cupomVerify[0].code.split('-')[1])) }
+                )
+            } else {
+                console.log('Data do cupom expirada');
+            } 
+        } else {
+            console.log('Tipo do Cupom inválido');
+        } 
         res.redirect('/produtos');
     }
 }
