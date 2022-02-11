@@ -1,0 +1,48 @@
+<section class="m-1">
+    <a href="/produtos/novo" class="btn btn-dark">
+        <i class="bi bi-plus"></i>
+        Criar produto
+    </a>
+    <hr/>
+    <form method="GET" style="width: 70%; margin: 10px auto; display: flex">
+        <input class="form-control form-control-sm" type="search" 
+        name="nomeProduto" value="{{ nomeProduto }}" placeholder="Nome do produto..." />
+        <button class="btn btn-sm btn-dark mx-2">
+            <i class="bi bi-search"></i>
+        </button>
+    </form>
+    <table class="table">
+        <thead>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Ações</th>
+        </thead>
+        <tbody>
+            {{#each produtos}}
+                <tr>
+                    <td>{{ this.name }}</td>
+                    <td>{{ this.price }}</td>
+                    <td>{{ this.description }}</td>
+                    <td>{{ this.quantity }}</td>
+                    <td>
+                        <div>
+                            <a href="/produtos/editar/{{ this._id }}" class="btn btn-sm btn-warning">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                        </div>
+                        <div>
+                            <form method="POST" action="/produtos/deletar">
+                                <input type="hidden" name="_id" value="{{ this.id }}">
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
