@@ -19,6 +19,6 @@
 
 > ## Integrantes [Squad #08] 
 
-| [Lucélia](https://github.com/Luceliabatista) | [Júlia Bassul](https://github.com/jubassul) | [Wellington Silva](https://github.com/welsda) | [Igor Pedrosa](https://github.com/igorlap) | [Rafaella Brunório](https://github.com/Rafafdev) |
+| [Lucélia Batista](https://github.com/Luceliabatista) | [Júlia Bassul](https://github.com/jubassul) | [Wellington Silva](https://github.com/welsda) | [Igor Pedrosa](https://github.com/igorlap) | [Rafaella Brunório](https://github.com/Rafafdev) |
 |----------|----------|----------| ---------- | ---------- |
 | ![](https://avatars.githubusercontent.com/u/86496770?v=4) |  ![](https://avatars.githubusercontent.com/u/65166068?v=4) | ![](https://avatars.githubusercontent.com/u/94239500?v=4) | ![](https://avatars.githubusercontent.com/u/47355583?v=4) | ![](https://avatars.githubusercontent.com/u/95293135?v=4) |
